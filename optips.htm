@@ -1,46 +1,71 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Rainbow Six Siege Tips</title>
+    <link rel="stylesheet" href="style_sheet.css" />
+    <!-- Here is where I link to the css style sheet -->
+  </head>
 
-<head>
-	<title>Rainbow Six Siege Tips</title>
-	<link rel="stylesheet" href="style_sheet.css"> <!-- Here is where I link to the css style sheet -->	
-</head>
+  <body>
+    <div id="container">
+      <!-- Title Div -->
+      <div class="rmiddle" id="a">
+        <h1>Rainbow Six Siege Tips</h1>
+      </div>
 
-<body>
+      <!-- Nav div-->
+      <div id="b" class="rmiddle">
+        <a href="index.htm">Home</a>
+        <a href="about.htm">About</a>
+        <a href="optips.htm">Operators</a>
+        <a href="strats.htm">Strategies</a>
+      </div>
 
-	<div id="container">
+      <!-- Main Body div -->
+      <div id="c">
+        <h1 id="operator"></h1>
+        <!-- These buttons don't loop at this moment, but I plan to implement this later-->
+        <button onclick="change_op(-1)">Prev</button>
+        <button onclick="change_op(1)">Next</button>
+      </div>
 
-		<!-- Title Div -->
-		<div class="rmiddle" id="a">
-			<h1>Rainbow Six Siege Tips</h1>
-		</div>
+      <!-- Contact div-->
+      <div id="d" class="rmiddle">
+        <p>
+          Davis King | CSCN 315 Case Project 1 | bdking6@liberty.edu |
+          (804)-339-9663
+        </p>
+      </div>
+    </div>
 
-		<!-- Nav div-->
-		<div id="b" class="rmiddle">
-			<a href="index.htm">Home</a>
-			<a href="about.htm">About</a>
-			<a href="optips.htm">Operators</a>
-			<a href="strats.htm">Strategies</a>
-		</div>
+    <script>
+      let x = document.getElementById("operator");
 
-		<!-- Main Body div -->
-		<div id="c">
-            <h1><strong>Will add more to this later</strong></h1>
-		</div>
+      // There are 70 operators in the game, so I created an array of only 5 for now
+      let ops = ["Sledge", "Brava", "Iq", "Jaeger", "Thermite"];
+      let current_op = 0;
+      show_op(current_op);
 
-		<!-- Contact div-->
-		<div id="d" class="rmiddle">
-			<p>Davis King | CSCN 315 Case Project 1 | bdking6@liberty.edu | (804)-339-9663</p>
-		</div>
+      // Changes the Operator being showcased
+      function change_op(n) {
+        show_op((current_op += n));
+      }
 
-	</div>
-
-	<script>
-
-		
-
-	</script>
-
-</body>
-
+      // If statements for the operators
+      function show_op(n) {
+        // Chooses which operator to display
+        if (n == ops.indexOf("Sledge")) {
+          x.innerHTML = "This is Sledge";
+        } else if (n == ops.indexOf("Brava")) {
+          x.innerHTML = "This is Brava";
+        } else if (n == ops.indexOf("Iq")) {
+          x.innerHTML = "This is Iq";
+        } else if (n == ops.indexOf("Jaeger")) {
+          x.innerHTML = "This is Jaeger";
+        } else if (n == ops.indexOf("Thermite")) {
+          x.innerHTML = "This is Thermite";
+        }
+      }
+    </script>
+  </body>
 </html>

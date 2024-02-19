@@ -1,97 +1,104 @@
 body {
-    background-image: url(images/background.jpg);
-	font-family: 'Courier New', Courier, monospace;
-    background-position: center center;
-    background-repeat:  no-repeat;
-    background-attachment: fixed;
-    background-size:  cover;
-    background-color: var(--black); 
+  background-image: url(images/background.jpg);
+  font-family: "Courier New", Courier, monospace;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: var(--black);
 }
 
 #container {
-    z-index: 10;
-    margin: 20px auto;
-    width: 1040px;
-    height: auto;
-    padding: 10px;
-    border: 1px solid #111;
-    background-color: #d3d3cbe3;
-    color: #333333;
+  z-index: 10;
+  margin: 20px auto;
+  width: 1040px;
+  height: auto;
+  padding: 10px;
+  border: 1px solid #111;
+  background-color: #d3d3cbe3;
+  color: #333333;
 
-    /* CSS Grid */
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 150px 50px auto 100px;
-    grid-template-areas:
-        "a a a a"
-        "b b b b"
-        "c c c c"
-        "d d d d"
+  /* CSS Grid */
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 150px 50px auto 100px;
+  grid-template-areas:
+    "a a a a"
+    "b b b b"
+    "c c c c"
+    "d d d d";
 }
 
-#a, #b, #c, #c2, #d, #_1, #_2, #_3 {
-    border: 1px solid #111;
+#a,
+#b,
+#c,
+#c2,
+#d,
+#_1,
+#_2,
+#_3 {
+  border: 1px solid #111;
 }
 
 #a {
-    grid-area: a;
+  grid-area: a;
 }
 
 #b {
-    grid-area: b;
+  grid-area: b;
 }
 
 #c {
-    grid-area: c;
-    padding: 10px;
+  grid-area: c;
+  padding: 10px;
 }
 
 #c2 {
-    grid-area: c;
-    padding: 10px;
+  grid-area: c;
+  padding: 10px;
 
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 200px auto 350px 150px;
-    grid-template-areas:
-        "_1 _1 _1 _1"
-        "_1 _1 _1 _1"
-        "_2 _2 _3 _3"
-        "_2 _2 _3 _3"
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px auto 350px 150px;
+  grid-template-areas:
+    "_1 _1 _1 _1"
+    "_1 _1 _1 _1"
+    "_2 _2 _3 _3"
+    "_2 _2 _3 _3";
 }
 
 #d {
-    grid-area: d;
+  grid-area: d;
 }
 
 #_1 {
-    grid-area: _1;
-    padding: 10px;
+  grid-area: _1;
+  padding: 10px;
 }
 
 #_2 {
-    grid-area: _2;
-    padding: 10px;
+  grid-area: _2;
+  padding: 10px;
 }
 
 #_3 {
-    grid-area: _3;
-    padding: 10px;
+  grid-area: _3;
+  padding: 10px;
 }
 
 #a h1 {
-    font-size: 3.5em;
+  font-size: 3.5em;
 }
 
 #b a {
-    font-size: 1.25em;
-    letter-spacing: 5px;
-    display: inline;
-    padding: 15px;
-    color: #333333;
-    text-decoration: none;
+  font-size: 1.25em;
+  letter-spacing: 5px;
+  display: inline;
+  padding: 15px;
+  color: #333333;
+  text-decoration: none;
 }
 
 /* Color Palette for Website 
@@ -112,20 +119,22 @@ body {
 */
 
 .image {
-    width: 100%;
-    border: 1px solid black;
+  width: 100%;
+  border: 1px solid black;
 }
 
-.cmiddle {   /* Centers content vertically */                                      
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.cmiddle {
+  /* Centers content vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.rmiddle {  /* Centers content horizontally */                                         
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+.rmiddle {
+  /* Centers content horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }

@@ -1,46 +1,67 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Rainbow Six Siege Tips</title>
+    <link rel="stylesheet" href="style_sheet.css" />
+    <!-- Here is where I link to the css style sheet -->
+  </head>
 
-<head>
-	<title>Rainbow Six Siege Tips</title>
-	<link rel="stylesheet" href="style_sheet.css"> <!-- Here is where I link to the css style sheet -->	
-</head>
+  <body>
+    <div id="container">
+      <!-- Title Div -->
+      <div class="rmiddle" id="a">
+        <h1>Rainbow Six Siege Tips</h1>
+      </div>
 
-<body>
+      <!-- Nav div-->
+      <div id="b" class="rmiddle">
+        <a href="index.htm">Home</a>
+        <a href="about.htm">About</a>
+        <a href="optips.htm">Operators</a>
+        <a href="strats.htm">Strategies</a>
+      </div>
 
-	<div id="container">
+      <!-- Main Body div -->
+      <div id="c">
+        <h3 id="top_strat" class="rmiddle"></h3>
+      </div>
 
-		<!-- Title Div -->
-		<div class="rmiddle" id="a">
-			<h1>Rainbow Six Siege Tips</h1>
-		</div>
+      <!-- Contact div-->
+      <div id="d" class="rmiddle">
+        <p>
+          Davis King | CSCN 315 Case Project 1 | bdking6@liberty.edu |
+          (804)-339-9663
+        </p>
+      </div>
+    </div>
 
-		<!-- Nav div-->
-		<div id="b" class="rmiddle">
-			<a href="index.htm">Home</a>
-			<a href="about.htm">About</a>
-			<a href="optips.htm">Operators</a>
-			<a href="strats.htm">Strategies</a>
-		</div>
+    <script>
+      let y = document.getElementById("top_strat");
 
-		<!-- Main Body div -->
-		<div id="c">
-            <h1><strong>Will add more to this later</strong></h1>
-		</div>
-
-		<!-- Contact div-->
-		<div id="d" class="rmiddle">
-			<p>Davis King | CSCN 315 Case Project 1 | bdking6@liberty.edu | (804)-339-9663</p>
-		</div>
-
-	</div>
-
-	<script>
-
-		
-
-	</script>
-
-</body>
-
+      // Switch that prints out strategy of the day
+      switch (new Date().getDay()) {
+        case 0:
+          y.innerHTML = "Here is the strat of the day for Sunday!";
+          break;
+        case 1:
+          y.innerHTML = "Here is the strat of the day for Monday!";
+          break;
+        case 2:
+          y.innerHTML = "Here is the strat of the day for Tuesday!";
+          break;
+        case 3:
+          y.innerHTML = "Here is the strat of the day for Wednesday!";
+          break;
+        case 4:
+          y.innerHTML = "Here is the strat of the day for Thursday!";
+          break;
+        case 5:
+          y.innerHTML = "Here is the strat of the day for Friday!";
+          break;
+        case 6:
+          y.innerHTML = "Here is the strat of the day for Saturday!";
+          break;
+      }
+    </script>
+  </body>
 </html>

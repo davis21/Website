@@ -1,88 +1,96 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Rainbow Six Siege Tips</title>
+    <link rel="stylesheet" href="style_sheet.css" />
+    <!-- Here is where I link to the css style sheet -->
+  </head>
 
-<head>
-	<title>Rainbow Six Siege Tips</title>
-	<link rel="stylesheet" href="style_sheet.css"> <!-- Here is where I link to the css style sheet -->
-</head>
+  <body>
+    <div id="container">
+      <!-- Title Div -->
+      <div class="rmiddle" id="a">
+        <h1>Rainbow Six Siege Tips</h1>
+      </div>
 
-<body>
+      <!-- Nav div-->
+      <div id="b" class="rmiddle">
+        <a href="index.htm">Home</a>
+        <a href="about.htm">About</a>
+        <a href="optips.htm">Operators</a>
+        <a href="strats.htm">Strategies</a>
+      </div>
 
-	<div id="container">
+      <!-- Main Body div -->
+      <div id="c2">
+        <div id="_1">
+          <p>
+            For God knows that when you eat of every tree of the third river is
+            Tigris, which flows east of Assyria. And the fourth river is Tigris,
+            which flows east of Assyria. And the fourth river is the ground
+            because of you; in toil you shall eat bread until you return to the
+            ground, and breathed into his nostrils the breath of life, I have
+            given every green plant for food. And it was a delight to the voice
+            of your wife, and have eaten of the tree of life also in the midst
+            of the evening breeze, and the waters that were above the dome. And
+            it was so. To the woman he said, I will greatly increase your pangs
+            in childbearing; in pain you shall bring forth for you; and you
+            shall eat bread until you return to the ground, and breathed into
+            his nostrils the breath of life, I have given you every plant
+            yielding seed that is upon the face of all the earth. Out of the
+            ground because of you; in toil you shall eat of it all the wild
+            animals of the field was yet in the earth were finished, and all
+            their multitude.
+          </p>
 
-		<!-- Title Div -->
-		<div class="rmiddle" id="a">
-			<h1>Rainbow Six Siege Tips</h1>
-		</div>
+          <img src="images/gign.webp" class="image" alt="GIGN Image" />
+        </div>
+        <div id="_2">
+          <h1>Not sure what to put here, yet...</h1>
+        </div>
+        <div id="_3">
+          <h3>Enter your suggestions for the site here!</h3>
+          <form id="form">
+            <label for="uname">Username:</label><br />
+            <input type="text" id="uname" name="uname" /><br />
+            <label for="email">Email:</label><br />
+            <input type="text" id="email" name="email" /><br />
+            <label for="sugg">Enter suggestions here:</label><br />
+            <textarea id="sugg" name="sugg" rows="10" cols="60"></textarea
+            ><br /><br />
+            <button type="button" onclick="thanks()">Submit</button>
+          </form>
 
-		<!-- Nav div-->
-		<div id="b" class="rmiddle">
-			<a href="index.htm">Home</a>
-			<a href="about.htm">About</a>
-			<a href="optips.htm">Operators</a>
-			<a href="strats.htm">Strategies</a>
-		</div>
+          <p id="thankyou_message"></p>
+        </div>
+      </div>
 
-		<!-- Main Body div -->
-		<div id="c2">
-			<div id="_1">
-				<p> For God knows that when you eat of every tree of the third river is Tigris, which flows east of
-					Assyria. And the fourth river is Tigris, which flows east of Assyria. And the fourth river is the
-					ground because of you; in toil you shall eat bread until you return to the ground, and breathed into
-					his nostrils the breath of life, I have given every green plant for food. And it was a delight to
-					the voice of your wife, and have eaten of the tree of life also in the midst of the evening breeze,
-					and the waters that were above the dome. And it was so. To the woman he said, I will greatly
-					increase your pangs in childbearing; in pain you shall bring forth for you; and you shall eat bread
-					until you return to the ground, and breathed into his nostrils the breath of life, I have given you
-					every plant yielding seed that is upon the face of all the earth. Out of the ground because of you;
-					in toil you shall eat of it all the wild animals of the field was yet in the earth were finished,
-					and all their multitude.
-				</p>
+      <!-- Contact div-->
+      <div id="d" class="rmiddle">
+        <p>
+          Davis King | CSCN 315 Case Project 1 | bdking6@liberty.edu |
+          (804)-339-9663
+        </p>
+      </div>
+    </div>
 
-				<img src="images/gign.webp" class="image" alt="GIGN Image">
-			</div>
-			<div id="_2">
-				<h1>Not sure what to put here, yet...</h1>
-			</div>
-			<div id="_3">
-				<h3>Enter your suggestions for the site here!</h3>
-				<form id="form">
-					<label for="uname">Username:</label><br>
-					<input type="text" id="uname" name="uname"><br>
-					<label for="email">Email:</label><br>
-					<input type="text" id="email" name="email"><br>
-					<label for="sugg">Enter suggestions here:</label><br>
-					<textarea id="sugg" name="sugg" rows="10" cols="60"></textarea><br><br>
-					<button type="button" onclick="thanks()">Submit</button>
-				</form>
+    <script>
+      // Function that uses form values to output a thank you message
+      function thanks() {
+        var x = document.getElementById("form"); // Gets all the elements from the form
 
-				<p id="thankyou_message"></p>
-			</div>
-		</div>
+        // Prints out the personalized thank you message
+        var thank = document.getElementById("thankyou_message");
+        thank.innerHTML =
+          "Thank you for the submission " +
+          x.elements[0].value +
+          "! A confirmation email has been sent to " +
+          x.elements[1].value +
+          "! Have a blessed day!!!";
 
-		<!-- Contact div-->
-		<div id="d" class="rmiddle">
-			<p>Davis King | CSCN 315 Case Project 1 | bdking6@liberty.edu | (804)-339-9663</p>
-		</div>
-
-	</div>
-
-	<script>
-
-		// Function that uses form values to output a thank you message
-		function thanks() {
-			var x = document.getElementById("form"); // Gets all the elements from the form
-
-			// Prints out the personalized thank you message
-			var thank = document.getElementById("thankyou_message");
-			thank.innerHTML = "Thank you for the submission " + x.elements[0].value + "! A confirmation email has been sent to " + x.elements[1].value + "! Have a blessed day!!!";
-
-			// Resets the form for another input
-			document.getElementById("form").reset();
-		}
-
-	</script>
-
-</body>
-
+        // Resets the form for another input
+        document.getElementById("form").reset();
+      }
+    </script>
+  </body>
 </html>
