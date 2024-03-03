@@ -51,10 +51,21 @@
         <div id="_3">
           <h3>Enter your suggestions for the site here!</h3>
           <form id="form">
+            <label for="fname">First Name:</label><br />
+            <input type="text" id="fname" name="fname" /><br />
+
+            <label for="lname">Last Name:</label><br />
+            <input type="text" id="lname" name="lname" /><br />
+
             <label for="uname">Username:</label><br />
             <input type="text" id="uname" name="uname" /><br />
+
             <label for="email">Email:</label><br />
             <input type="text" id="email" name="email" /><br />
+
+            <label for="phone">Phone:</label><br />
+            <input type="text" id="number" name="number" /><br />
+
             <label for="sugg">Enter suggestions here:</label><br />
             <textarea id="sugg" name="sugg" rows="10" cols="60"></textarea
             ><br /><br />
@@ -79,14 +90,37 @@
       function thanks() {
         var x = document.getElementById("form"); // Gets all the elements from the form
 
-        // Prints out the personalized thank you message
+        let y = document.getElementById("number").value; // Gets the information from the phone number field
+        let t = true; // A check to see if there are any errors
+
+        // Checks the information from the phone number field
         var thank = document.getElementById("thankyou_message");
-        thank.innerHTML =
-          "Thank you for the submission " +
-          x.elements[0].value +
-          "! A confirmation email has been sent to " +
-          x.elements[1].value +
-          "! Have a blessed day!!!";
+        try {
+          if (y.trim() == "") throw "empty"; // Throws an error message if the field is empty
+          if (isNaN(y)) throw "not a number"; // Throws an error when there is anything but a number in the field
+        } catch (err) {
+          alert("Phone Number is " + err); // Shows the error in a browser alert
+          t = false;
+        }
+
+        /*
+        For the error checking, I added a try and catch error check. I did this because I feel it's the most
+        intuitive way to error check for inputs in a form. What it does is it checks to see if the field
+        is empty or not a number, and if any of those is true, then it throws an error. This error is then
+        caught in the catch portion, where it then shows a browser alert using that specific error from the
+        try portion.
+        */
+
+        // Prints out the personalized thank you message if there are no errors
+        if (t == true) {
+          alert(
+            "Thank you for the submission " +
+              x.elements[2].value +
+              "! A confirmation email has been sent to " +
+              x.elements[3].value +
+              "! Have a blessed day!!!"
+          );
+        }
 
         // Resets the form for another input
         document.getElementById("form").reset();
