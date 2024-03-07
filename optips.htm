@@ -23,10 +23,53 @@
 
       <!-- Main Body div -->
       <div id="c">
-        <h1 id="operator"></h1>
-        <!-- These buttons don't loop at this moment, but I plan to implement this later-->
-        <button onclick="change_op(-1)">Prev</button>
-        <button onclick="change_op(1)">Next</button>
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 5</div>
+            <img src="images/Sledge.png" style="width: 100%" />
+            <div class="text">Sledge</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 5</div>
+            <img src="images/Iq.png" style="height: 100%" />
+            <div class="text">Iq</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 5</div>
+            <img src="images/Jager.png" style="width: 100%" />
+            <div class="text">Jager</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">4 / 5</div>
+            <img src="images/Brava.png" style="width: 100%" />
+            <div class="text">Brava</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">5 / 5</div>
+            <img src="images/Thermite.png" style="width: 100%" />
+            <div class="text">Thermite</div>
+          </div>
+
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br />
+
+        <!-- The dots/circles -->
+        <div style="text-align: center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
       </div>
 
       <!-- Contact div-->
@@ -39,32 +82,37 @@
     </div>
 
     <script>
-      let x = document.getElementById("operator");
+      let slideIndex = 1;
+      showSlides(slideIndex);
 
-      // There are 70 operators in the game, so I created an array of only 5 for now
-      let ops = ["Sledge", "Brava", "Iq", "Jaeger", "Thermite"];
-      let current_op = 0;
-      show_op(current_op);
-
-      // Changes the Operator being showcased
-      function change_op(n) {
-        show_op((current_op += n));
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
       }
 
-      // If statements for the operators
-      function show_op(n) {
-        // Chooses which operator to display
-        if (n == ops.indexOf("Sledge")) {
-          x.innerHTML = "This is Sledge";
-        } else if (n == ops.indexOf("Brava")) {
-          x.innerHTML = "This is Brava";
-        } else if (n == ops.indexOf("Iq")) {
-          x.innerHTML = "This is Iq";
-        } else if (n == ops.indexOf("Jaeger")) {
-          x.innerHTML = "This is Jaeger";
-        } else if (n == ops.indexOf("Thermite")) {
-          x.innerHTML = "This is Thermite";
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
         }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
       }
     </script>
   </body>
