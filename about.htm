@@ -50,7 +50,7 @@
         </div>
         <div id="_3">
           <h3>Enter your suggestions for the site here!</h3>
-          <form id="form">
+          <form id="myForm">
             <label for="fname">First Name:</label><br />
             <input type="text" id="fname" name="fname" /><br />
 
@@ -71,8 +71,6 @@
             ><br /><br />
             <button type="button" onclick="thanks()">Submit</button>
           </form>
-
-          <p id="thankyou_message"></p>
         </div>
       </div>
 
@@ -86,30 +84,73 @@
     </div>
 
     <script>
-      // Function that uses form values to output a thank you message
-      function thanks() {
-        var x = document.getElementById("form"); // Gets all the elements from the form
+      // Function that validates the inputs
+      function validate(a) {
+        let fname = a.elements[0].value;
+        let lname = a.elements[1].value;
+        let user = a.elements[2].value;
+        let email = a.elements[3].value;
+        let number = a.elements[4].value;
+        let result = "";
+        let bool = true;
 
-        let y = document.getElementById("number").value; // Gets the information from the phone number field
-        let t = true; // A check to see if there are any errors
-
-        // Checks the information from the phone number field
-        var thank = document.getElementById("thankyou_message");
+        // Checks the information from the fname field
         try {
-          if (y.trim() == "") throw "empty"; // Throws an error message if the field is empty
-          if (isNaN(y)) throw "not a number"; // Throws an error when there is anything but a number in the field
+          if (fname.trim() == "") throw "empty";
+          if (!isNaN(fname)) throw "not a string";
         } catch (err) {
-          alert("Phone Number is " + err); // Shows the error in a browser alert
-          t = false;
+          result = result + "First name is " + err + ". ";
+          bool = false;
         }
 
-        /*
-        For the error checking, I added a try and catch error check. I did this because I feel it's the most
-        intuitive way to error check for inputs in a form. What it does is it checks to see if the field
-        is empty or not a number, and if any of those is true, then it throws an error. This error is then
-        caught in the catch portion, where it then shows a browser alert using that specific error from the
-        try portion.
-        */
+        // Checks the information from the lname field
+        try {
+          if (lname.trim() == "") throw "empty";
+          if (!isNaN(lname)) throw "not a string";
+        } catch (err) {
+          result = result + "Last name is " + err + ". ";
+          bool = false;
+        }
+
+        // Checks the information from the user field
+        try {
+          if (user.trim() == "") throw "empty";
+          if (!isNaN(user)) throw "not a string";
+        } catch (err) {
+          result = result + "Username is " + err + ". ";
+          bool = false;
+        }
+
+        // Checks the information from the email field
+        try {
+          if (email.trim() == "") throw "empty";
+          if (!isNaN(email)) throw "not a string";
+        } catch (err) {
+          result = result + "Email is " + err + ". ";
+          bool = false;
+        }
+
+        // Checks the information from the phone number field
+        try {
+          if (number.trim() == "") throw "empty"; // Throws an error message if the field is empty
+          if (isNaN(number)) throw "not a number"; // Throws an error when there is anything but a number in the field
+        } catch (err) {
+          result = result + "The phone number is " + err + ". "; // Shows the error in a browser alert
+          bool = false;
+        }
+
+        if (bool == false) {
+          alert(result + "Please retry.");
+        }
+        return bool;
+      }
+
+      // Function that uses form values to output a thank you message
+      function thanks() {
+        var x = document.getElementById("myForm"); // Gets all the elements from the form
+        let t = validate(x);
+
+        let y = document.getElementById("number").value; // Gets the information from the phone number field
 
         // Prints out the personalized thank you message if there are no errors
         if (t == true) {
@@ -123,7 +164,7 @@
         }
 
         // Resets the form for another input
-        document.getElementById("form").reset();
+        document.getElementById("myForm").reset();
       }
     </script>
   </body>
