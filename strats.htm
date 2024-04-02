@@ -23,7 +23,31 @@
 
       <!-- Main Body div -->
       <div id="c">
-        <h3 id="top_strat" class="rmiddle"></h3>
+        <form id="strat_selections">
+          <input type="checkbox" id="mon" name="mon" value="Monday Strat" />
+          <label for="mon"> Monday's Strategy</label><br />
+
+          <input type="checkbox" id="tue" name="tue" value="Tuesday Strat" />
+          <label for="tue"> Tuesday's Strategy</label><br />
+
+          <input type="checkbox" id="wed" name="wed" value="Wednesday Strat" />
+          <label for="wed"> Wednesday's Strategy</label><br />
+
+          <input type="checkbox" id="thu" name="thu" value="Thursday Strat" />
+          <label for="thu"> Thursday's Strategy</label><br />
+
+          <input type="checkbox" id="fri" name="fri" value="Friday Strat" />
+          <label for="fri"> Friday's Strategy</label><br />
+
+          <input type="checkbox" id="sat" name="sat" value="Saturday Strat" />
+          <label for="sat"> Saturday's Strategy</label><br />
+
+          <input type="checkbox" id="sun" name="sun" value="Sunday Strat" />
+          <label for="sun"> Sunday's Strategy</label><br />
+          <button type="button" onclick="submit_choices()">Submit</button>
+        </form>
+
+        <p id="test"></p>
       </div>
 
       <!-- Contact div-->
@@ -36,31 +60,82 @@
     </div>
 
     <script>
-      let y = document.getElementById("top_strat");
+      const selections = [];
 
-      // Switch that prints out strategy of the day
-      switch (new Date().getDay()) {
-        case 0:
-          y.innerHTML = "Here is the strat of the day for Sunday!";
-          break;
-        case 1:
-          y.innerHTML = "Here is the strat of the day for Monday!";
-          break;
-        case 2:
-          y.innerHTML = "Here is the strat of the day for Tuesday!";
-          break;
-        case 3:
-          y.innerHTML = "Here is the strat of the day for Wednesday!";
-          break;
-        case 4:
-          y.innerHTML = "Here is the strat of the day for Thursday!";
-          break;
-        case 5:
-          y.innerHTML = "Here is the strat of the day for Friday!";
-          break;
-        case 6:
-          y.innerHTML = "Here is the strat of the day for Saturday!";
-          break;
+      document.getElementById("mon").addEventListener("change", () => {
+        if (document.getElementById("mon").checked) {
+          selections.push("Monday");
+        } else {
+          find("Monday");
+        }
+      });
+      document.getElementById("tue").addEventListener("change", () => {
+        if (document.getElementById("tue").checked) {
+          selections.push("Tuesday");
+        } else {
+          find("Tuesday");
+        }
+      });
+      document.getElementById("wed").addEventListener("change", () => {
+        if (document.getElementById("wed").checked) {
+          selections.push("Wednesday");
+        } else {
+          find("Wednesday");
+        }
+      });
+      document.getElementById("thu").addEventListener("change", () => {
+        if (document.getElementById("thu").checked) {
+          selections.push("Thursday");
+        } else {
+          find("Thursday");
+        }
+      });
+      document.getElementById("fri").addEventListener("change", () => {
+        if (document.getElementById("fri").checked) {
+          selections.push("Friday");
+        } else {
+          find("Friday");
+        }
+      });
+      document.getElementById("sat").addEventListener("change", () => {
+        if (document.getElementById("sat").checked) {
+          selections.push("Saturday");
+        } else {
+          find("Saturday");
+        }
+      });
+      document.getElementById("sun").addEventListener("change", () => {
+        if (document.getElementById("sun").checked) {
+          selections.push("Sunday");
+        } else {
+          find("Sunday");
+        }
+      });
+
+      function find(x) {
+        for (let i = 0; i < selections.length; i++) {
+          if (x == selections[i]) {
+            delete selections[i];
+          }
+        }
+      }
+
+      function submit_choices() {
+        let filtered = selections.filter(function (el) {
+          return el != null;
+        });
+        console.log(filtered);
+        filtered.sort((a, b) => {
+          return;
+        });
+
+        if (selections.length == 0) {
+          alert("Nothing has been selected!");
+        } else if (selections.length == 1) {
+          alert(filtered + " has been selected!");
+        } else {
+          alert(filtered.join(" and ") + " have been selected!");
+        }
       }
     </script>
   </body>
