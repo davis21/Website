@@ -29,31 +29,31 @@
           <div class="mySlides fade">
             <div class="numbertext">1 / 5</div>
             <img src="images/Sledge.png" style="width: 100%" />
-            <div class="text">Sledge</div>
+            <div id="1" class="text"></div>
           </div>
 
           <div class="mySlides fade">
             <div class="numbertext">2 / 5</div>
-            <img src="images/Iq.png" style="height: 100%" />
-            <div class="text">Iq</div>
+            <img src="images/Iq.png" style="width: 100%" />
+            <div id="2" class="text"></div>
           </div>
 
           <div class="mySlides fade">
             <div class="numbertext">3 / 5</div>
             <img src="images/Jager.png" style="width: 100%" />
-            <div class="text">Jager</div>
+            <div id="3" class="text"></div>
           </div>
 
           <div class="mySlides fade">
             <div class="numbertext">4 / 5</div>
             <img src="images/Brava.png" style="width: 100%" />
-            <div class="text">Brava</div>
+            <div id="4" class="text"></div>
           </div>
 
           <div class="mySlides fade">
             <div class="numbertext">5 / 5</div>
             <img src="images/Thermite.png" style="width: 100%" />
-            <div class="text">Thermite</div>
+            <div id="5" class="text"></div>
           </div>
 
           <!-- Next and previous buttons -->
@@ -81,9 +81,26 @@
       </div>
     </div>
 
+    <!-- Calls my external objects js file to use the object for the class-->
+    <script src="objects.js"></script>
     <script>
       let slideIndex = 1;
       showSlides(slideIndex);
+
+      const sledge = new Operator("Sledge");
+      sledge.display_name("1");
+
+      const iq = new Operator("Iq");
+      iq.display_name("2");
+
+      const jaeger = new Operator("Jaeger");
+      jaeger.display_name("3");
+
+      const brava = new Operator("Brava");
+      brava.display_name("4");
+
+      const thermite = new Operator("Thermite");
+      thermite.display_name("5");
 
       // Next/previous controls
       function plusSlides(n) {
@@ -102,6 +119,7 @@
         if (n > slides.length) {
           slideIndex = 1;
         }
+
         if (n < 1) {
           slideIndex = slides.length;
         }
