@@ -46,7 +46,29 @@
           <img src="images/gign.webp" class="image" alt="GIGN Image" />
         </div>
         <div id="_2">
-          <h1>Not sure what to put here, yet...</h1>
+          <h1>Stored Data!</h1>
+          <table>
+            <tr>
+              <td>First Name ----</td>
+              <td id="stored_fname"></td>
+            </tr>
+            <tr>
+              <td>Last Name -----</td>
+              <td id="stored_lname"></td>
+            </tr>
+            <tr>
+              <td>User Name -----</td>
+              <td id="stored_uname"></td>
+            </tr>
+            <tr>
+              <td>Email ---------</td>
+              <td id="stored_email"></td>
+            </tr>
+            <tr>
+              <td>Phone ---------</td>
+              <td id="stored_phone"></td>
+            </tr>
+          </table>
         </div>
         <div id="_3">
           <h3>Enter your suggestions for the site here!</h3>
@@ -69,7 +91,7 @@
             <label for="sugg">Enter suggestions here:</label><br />
             <textarea id="sugg" name="sugg" rows="10" cols="60"></textarea
             ><br /><br />
-            <button type="button" onclick="thanks()">Submit</button>
+            <input value="Submit" type="submit" onclick="thanks()" />
           </form>
         </div>
       </div>
@@ -133,7 +155,7 @@
         // Checks the information from the phone number field
         try {
           if (number.trim() == "") throw "empty"; // Throws an error message if the field is empty
-          if (isNaN(number)) throw "not a number"; // Throws an error when there is anything but a number in the field
+          if (!isNaN(number)) throw "not a number"; // Throws an error when there is anything but a number in the field
         } catch (err) {
           result = result + "The phone number is " + err + ". "; // Shows the error in a browser alert
           bool = false;
@@ -162,10 +184,22 @@
               "! Have a blessed day!!!"
           );
         }
+        // Storing information to local storage using Web Storage API
+        let form_fields = document.querySelectorAll(
+          "#user input, input[type=text], textarea"
+        );
 
-        // Resets the form for another input
-        document.getElementById("myForm").reset();
+        for (let fields of form_fields) {
+          localStorage.setItem(fields.name, fields.value);
+        }
       }
+
+      // Retrieving stored data and displaying it in a table
+      document.getElementById("stored_fname").innerHTML = localStorage.fname;
+      document.getElementById("stored_lname").innerHTML = localStorage.lname;
+      document.getElementById("stored_uname").innerHTML = localStorage.uname;
+      document.getElementById("stored_email").innerHTML = localStorage.email;
+      document.getElementById("stored_phone").innerHTML = localStorage.number;
     </script>
   </body>
 </html>
