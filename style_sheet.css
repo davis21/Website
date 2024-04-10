@@ -101,6 +101,11 @@ body {
   text-decoration: none;
 }
 
+#map {
+  height: 500px;
+  width: 100%;
+}
+
 /* Color Palette for Website 
 #ffffff
 #000000

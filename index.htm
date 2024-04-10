@@ -52,6 +52,9 @@
         </p>
 
         <img src="images/swat.jpg" class="image" alt="Swat Image" />
+
+        <br />
+        <div id="map"></div>
       </div>
 
       <!-- Contact div-->
@@ -63,6 +66,38 @@
       </div>
     </div>
 
-    <script></script>
+    <script>
+      function initMap() {
+        // Create a new map centered at user's current location
+        navigator.geolocation.getCurrentPosition(function (position) {
+          var userLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+
+          var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: userLocation,
+          });
+
+          // Add a marker at the user's current location
+          var marker = new google.maps.Marker({
+            position: userLocation,
+            map: map,
+          });
+
+          // Add event listener for when marker is dragged
+          marker.addListener("dragend", function (event) {
+            map.setCenter(marker.getPosition()); // Center the map to the new marker position
+          });
+        });
+      }
+    </script>
+    <!-- Load Google Maps API with Maps JavaScript, Geolocation and Maps Embed APIs -->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNQd4np1QUwLJvQtiGcaHdzYLhG-pl0bk&libraries=places&callback=initMap"
+    ></script>
   </body>
 </html>
